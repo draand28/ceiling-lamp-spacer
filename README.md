@@ -17,9 +17,9 @@ Modeled with SolidCraft (solidcraft-cli, script `build.json`).
 
 - Cavity: 178 mm dia x 28 mm, open towards the ceiling through the 110 mm hole.
 - Lamp-side face: closed (1 mm).
-- Rib: 10 mm wide, full diameter, 29 mm tall, solid, arc ends flush with the
-  outer wall, top flush with the ceiling-side face. Built as a box intersected
-  with the outer cylinder, so it fuses to the wall without slivers.
+- Rib: 20 mm wide, 29 mm tall, solid, top flush with the opening face. Its box is
+  intersected with a 179 mm cylinder, so the ends sit 0.5 mm inside the 1 mm side
+  wall: the rib fuses into the wall instead of leaving coincident-face seams.
 - Volume 159 cm3, mass about 205 g at default material density.
 
 ## Files
