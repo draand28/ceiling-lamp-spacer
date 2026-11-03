@@ -1,0 +1,17 @@
+{
+  "commands": [
+    {"command": "parameters.add", "params": {"name": "D_OUT", "expression": "180", "unit": "mm", "comment": "outer diameter"}},
+    {"command": "parameters.add", "params": {"name": "H", "expression": "30", "unit": "mm", "comment": "overall height"}},
+    {"command": "parameters.add", "params": {"name": "T", "expression": "1", "unit": "mm", "comment": "wall thickness"}},
+    {"command": "parameters.add", "params": {"name": "D_HOLE", "expression": "110", "unit": "mm", "comment": "opening in lamp-side face"}},
+    {"command": "parameters.add", "params": {"name": "W_RIB", "expression": "10", "unit": "mm", "comment": "solid rib width"}},
+
+    {"command": "solid.cylinder", "params": {"diameter": "D_OUT", "height": "H", "base": [0, 0, 0], "operation": "new", "body_name": "Spacer"}},
+
+    {"command": "solid.cylinder", "params": {"diameter": "D_OUT - 2 * T", "height": "H - 2 * T", "base": [0, 0, "T"], "operation": "cut", "targets": ["Spacer"]}},
+
+    {"command": "solid.cylinder", "params": {"diameter": "D_HOLE", "height": "2 * T + 1", "base": [0, 0, "-(T + 0.5)"], "operation": "cut", "targets": ["Spacer"]}},
+
+    {"command": "solid.box", "params": {"length": "D_OUT", "width": "W_RIB", "height": "H - T", "center": [0, 0, "(H - T) / 2"], "operation": "join", "targets": ["Spacer"]}}
+  ]
+}
